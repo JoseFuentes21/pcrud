@@ -1,0 +1,38 @@
+<div class="table-responsive">
+  <table class="table table-hover table-centered table-nowrap">
+    <thead class="thead-dark">
+      <tr>
+        <th class="align-middle">ID</th>
+        <th class="align-middle">NOMBRE</th>
+        <th class="align-middle">DESCRIPCION</th>
+        <th class="align-middle">TIPO BEBIDA</th>
+        <th class="align-middle">PRECIO</th>
+        <th class="align-middle">UNIDAD MEDIDA</th>
+        <th class="align-middle">ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let data of producto; let i=index">
+      <tr>
+        <td>{{data.idProducto}}</td>
+        <td>{{data.nombre}}</td>
+        <td>{{data.descripcion}}</td>
+        <td>{{data.tipoBebida}}</td>
+        <td>{{data.precio}}</td>
+        <td>{{data.unidadMedida.nombre}}</td>
+        <td>
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-danger btn-sm btn-rounded mx-2">
+            <i class="bi bi-trash"></i>
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-dark btn-sm btn-rounded">
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,48 @@
+<div class="banner fixed-top"></div>
+<div class="bg-dark">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-4">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img [src]="logo" alt="Diplomado" height="30%"> Navbar</a>
+              <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Directivas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngIf']">NgIf</a></li>
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngFor']">NgFor</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+              <ul class="navbar-nav">
+                <li routerLinkActive="active" class="nav-item">
+                  <a class="nav-link" [routerLink]="['producto/listado']">Producto</a>
+                </li>
+                <li routerLinkActive="active" class="nav-item">
+                  <a class="nav-link" [routerLink]="['anime/listar']">Anime</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Upload | Calendar
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['librerias/upload']">Upload</a></li>
+                          <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['librerias/calendar']">Calendar</a></li>
+                      </ul>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+</div>
+

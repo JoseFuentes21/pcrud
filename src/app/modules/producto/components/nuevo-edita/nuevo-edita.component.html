@@ -1,0 +1,139 @@
+<div class="text-md-end ">
+  <button
+  type="button"
+  class="btn btn-primary btn-lg"
+  data-bs-toggle="modal"
+  data-bs-target="#modalProducto"
+>
+  {{leyenda}}
+</button>
+</div>
+<!-- Modal -->
+<div
+  class="modal modal-fullscreen-xl-down modal-lg"
+  id="modalProducto"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+  <form (ngSubmit)="guardar()" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Producto</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="mostrar()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label>Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre"
+                formControlName="nombre"
+                [class]="esCampoValido('nombre')"/>
+              <div class="invalid-feedback">
+                <span *ngIf="formProducto.get('nombre')?.errors?.['required']">
+                    Requiere un peso
+                </span>
+                <span *ngIf="formProducto.get('nombre')?.errors?.['pattern']">
+                    Requiere numero
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label>Descripcion</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Descripcion"
+                formControlName="descripcion"
+                [class]="esCampoValido('descripcion')"/>
+              <div class="invalid-feedback">
+                <span *ngIf="formProducto.get('descripcion')?.errors?.['required']">
+                    Requiere un peso
+                </span>
+                <span *ngIf="formProducto.get('descripcion')?.errors?.['pattern']">
+                    Requiere numero
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Precio</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Precio 0.00"
+                formControlName="precio"
+                [class]="esCampoValido('precio')"/>
+              <div class="invalid-feedback">
+                <span *ngIf="formProducto.get('precio')?.errors?.['required']">
+                    Requiere un peso
+                </span>
+                <span *ngIf="formProducto.get('precio')?.errors?.['pattern']">
+                    Requiere numero
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Tipo Bebida</label>
+              <div class="form-group">
+                <select
+                  class="form-control form-select"
+                  formControlName="tipoBebida"
+                  [class]="esCampoValido('tipoBebida')">
+                  <option value="ALCOHOLICA">ALCOHOLICA</option>
+                  <option value="NOALCOHOLICA">NOALCOHOLICA</option>
+                </select>
+                <div class="invalid-feedback">
+                  <span *ngIf="formProducto.get('tipoBebida')?.errors?.['required']">
+                    Requiere el origen
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Unidad Medida</label>
+              <div class="form-group">
+                <select
+                  class="form-control form-select"
+                  formControlName="unidadMedida"
+                  [class]="esCampoValido('unidadMedida')">
+                  <option *ngFor="let medid of uniMedidas"
+                          [value]="medid.idMedida"
+                        >
+                          {{ medid.nombre }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  <span *ngIf="formProducto.get('unidadMedida')?.errors?.['required']">
+                    Requiere el origen
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary mt-sm-2 " data-bs-dismiss="modal"
+            (click)="mostrar()"> Cerrar
+          </button>
+          <button type="submit" class="btn btn-outline-info mt-sm-2">
+            <i class="bi bi-database-add"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
